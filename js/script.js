@@ -364,7 +364,7 @@ function addCommasToNumber(number){
 
 //Display 20 Popular Tv Shows
 async function displayPopularShows() {
-    const { results } = await fetchAPIData("/tv/popular");
+    const { results } = await fetchAPIData("tv/popular");
     
     results.forEach(show => {
         const popularShowDiv = document.createElement("div");
