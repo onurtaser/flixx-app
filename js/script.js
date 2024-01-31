@@ -464,32 +464,20 @@ function highlightActiveLink() {
 
 //Init function
 function init() {
-    switch (global.currentPage) {
-        case "/":
-        case "/index.html":
-            displayPopularMovies();
-            displaySlider();
-            break;
+    const page = global.currentPage;
 
-        case "/shows.html":
-            displayPopularShows();
-            break;
-
-        case "/movie-details.html":
-            displayMovieDetails();
-            break;
-
-        case "/tv-details.html":
-            displayShowDetails();
-            break;
-
-        case "/search.html":
-            search();
-            break;
-
-        default:
-            break;
-    }
+    if (["/", "/index.html"].includes(page)) {
+        displayPopularMovies();
+        displaySlider();
+      } else if (page.includes("shows")) {
+        displayPopularShows();
+      } else if (page.includes("movie-details")) {
+        displayMovieDetails();
+      } else if (page.includes("tv-details")) {
+        displayShowDetails();
+      } else if (page.includes("search")) {
+        search();
+      }
 
     highlightActiveLink();
 }
